@@ -26,7 +26,7 @@ class GiftExchange
 
   def valid?(assignment)
     assignment.all? do |from, to|
-      puts "is invalid: #{from} => #{to}" if players[from] == players[to]
+      puts "is invalid: #{from} => #{to}" if players[from] == players[to] && ENV["test"] != "true"
       players[from] != players[to]
     end
   end
@@ -36,12 +36,16 @@ class GiftExchange
     valid = false
     until valid
       assignment = gift.assign
-      puts assignment
+      sleep 1 unless ENV["test"] == "true"
+      puts assignment unless ENV["test"] == "true"
       valid = gift.valid?(assignment)
-      sleep 5
     end
+    puts "is valid =)" unless ENV["test"] == "true"
     assignment
   end
 end
 
-puts GiftExchange.run(ARGV[0])
+unless ENV["test"] == "true"
+  filename = ARGV[0] || "names.txt"
+  GiftExchange.run(filename)
+end

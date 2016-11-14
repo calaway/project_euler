@@ -1,3 +1,5 @@
+ENV["test"] = "true"
+
 require './gift_exchange'
 
 RSpec.describe GiftExchange do
