@@ -17,3 +17,7 @@ end
 end
 
 p @sequence
+
+# without recursion:
+
+def fib2(n)
