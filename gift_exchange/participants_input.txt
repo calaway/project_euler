@@ -1,5 +1,3 @@
-Dad         1
-Mom         1
 Jenn        2
 Christopher 3
 Ryanne      3
