@@ -1,6 +1,18 @@
 require './lib/prime'
 
 RSpec.describe Prime, "#is_prime?" do
+  context "for invalid input" do
+    it "returns false" do
+      prime = Prime.new
+
+      expect(prime.is_prime?(0)).to be false
+      expect(prime.is_prime?(-1)).to be false
+      expect(prime.is_prime?(1)).to be false
+      expect(prime.is_prime?(5.5)).to be false
+      expect(prime.is_prime?("Puppy")).to be false
+    end
+  end
+
   context "for composite numbers" do
     it "returns false" do
       prime = Prime.new

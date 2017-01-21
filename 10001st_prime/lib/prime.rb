@@ -1,6 +1,8 @@
 class Prime
   def is_prime?(number)
-    if number == 2
+    if number.class != Fixnum || number < 2
+      false
+    elsif number == 2
       true
     elsif number % 2 == 0
       false
